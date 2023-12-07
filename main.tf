@@ -20,12 +20,12 @@ resource "aws_instance" "ec2_instance" {
   name               = "my-application-lb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = ["sg-8a420fc2"]  # Replace with your security group ID
+  security_groups    = ["xxxx"]  # Replace with your security group ID
   enable_deletion_protection       = false
   enable_cross_zone_load_balancing = true
   enable_http2                     = true
   idle_timeout                     = 60
-  subnets            = ["subnet-0cab3d03","subnet-84ea29d8"]
+  subnets            = [xxxx]
 
 }
 
@@ -55,7 +55,7 @@ resource "aws_lb_listener" "https" {
   port              = 443
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:us-east-1:764599819461:certificate/e34f70e8-21b7-4abf-bb09-01128a8c14a0"
+  certificate_arn   = "axxxxx"
 
   default_action {
     type             = "forward"
@@ -73,7 +73,7 @@ resource "aws_lb_target_group" "jenkins" {
   port        = 8080
   protocol    = "HTTP"
   target_type = "instance"
-  vpc_id      = "vpc-73fefa08"  # Replace with your VPC ID
+  vpc_id      = "vxxxxxxxxx"  # Replace with your VPC ID
 }
 
 
